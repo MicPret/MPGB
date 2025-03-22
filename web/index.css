@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #202020;
+}
+h1 {
+    color: #a0b0c0;
+}
+#emulator {
+    border: 1px solid black;
+}
+#fileInput {
+    margin-top: 20px;
+}
