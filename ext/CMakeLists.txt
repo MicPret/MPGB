@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.31)
 
 target_include_directories(mpgb PRIVATE include)
 
-target_compile_definitions(mpgb PUBLIC GLFW_INCLUDE_NONE=1)
-
 if(EMSCRIPTEN)
   target_link_options(mpgb PUBLIC "--use-port=contrib.glfw3")
 else()
@@ -17,6 +15,8 @@ else()
     FIND_PACKAGE_ARGS
   )
   FetchContent_MakeAvailable(glfw)
+
+  target_compile_definitions(glfw INTERFACE GLFW_INCLUDE_NONE=1)
 endif()
 
 target_link_libraries(mpgb glfw)
