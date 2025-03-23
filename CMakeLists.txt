@@ -62,8 +62,10 @@ else()
     target_compile_definitions(mpgb PUBLIC MPGB_ENABLE_PRINT=1)
 endif()
 
-add_custom_command(TARGET mpgb PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_CURRENT_SOURCE_DIR}/roms/
-        $<TARGET_FILE_DIR:mpgb>/roms/
-)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/roms)
+    add_custom_command(TARGET mpgb PRE_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${CMAKE_CURRENT_SOURCE_DIR}/roms/
+            $<TARGET_FILE_DIR:mpgb>/roms/
+    )
+endif()
