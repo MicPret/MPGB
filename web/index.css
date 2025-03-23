@@ -1,12 +1,22 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #202020;
+    background-image: linear-gradient(#404040, grey);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
 }
 h1 {
+    font-family: "Kanit", monospace;
+    font-style: italic;
     color: #a0b0c0;
 }
 #emulator {
-    border: 1px solid black;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom right, darkgreen, green);
 }
 #fileInput {
     margin-top: 20px;
