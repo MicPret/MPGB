@@ -53,11 +53,14 @@ if(EMSCRIPTEN)
             "-sEXPORTED_FUNCTIONS=[_malloc,_free,_Start,_LoadROM]"
             # "--emrun"
     )
-    add_custom_command(TARGET mpgb PRE_BUILD
+
+    add_custom_target(copy_web_directory
         COMMAND ${CMAKE_COMMAND} -E copy_directory
             ${CMAKE_CURRENT_SOURCE_DIR}/web/
             $<TARGET_FILE_DIR:mpgb>
     )
+    add_dependencies(mpgb copy_web_directory)
+    
 else()
     target_compile_definitions(mpgb PUBLIC MPGB_ENABLE_PRINT=1)
 endif()
