@@ -32,7 +32,6 @@ std::uint8_t MBC1::Read8(std::uint16_t address) const {
             PRINTF("[READ] [MBC1] RAM disabled: %04X\n", address);
             return -1;
         }
-        // TODO implement save
         unsigned offset = address - 0xA000;
         unsigned bank_select = (m_BankingMode && (m_ROMSelectHi < m_RAMBanks.size()))
             ? m_ROMSelectHi

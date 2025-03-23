@@ -11,6 +11,8 @@ public:
     virtual ~Mapper() = default;
     virtual std::uint8_t Read8(std::uint16_t address) const = 0;
     virtual bool Write8(std::uint16_t address, std::uint8_t value) = 0;
+    bool LoadSave(const std::uint8_t* data, std::size_t size);
+    std::vector<std::uint8_t> SaveRAM() const;
 protected:
     static constexpr unsigned ROMBankSize = 0x4000;
     static constexpr unsigned RAMBankSize = 0x2000;
