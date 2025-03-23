@@ -1,5 +1,5 @@
-#include "carry.h"
-#include "CPU.h"
+#include <mpgb/instr/carry.h>
+#include <mpgb/CPU.h>
 
 bool i37_SCF(CPU* cpu) {
     cpu->SetFlagSubtract(false);

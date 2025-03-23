@@ -1,4 +1,4 @@
-#include "CartridgeHeader.h"
+#include <mpgb/CartridgeHeader.h>
 
 #include <cassert>
 

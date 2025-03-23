@@ -1,5 +1,5 @@
-#include "bitwise.h"
-#include "CPU.h"
+#include <mpgb/instr/bitwise.h>
+#include <mpgb/CPU.h>
 
 static bool AND_A_r8(CPU* cpu, std::uint8_t r8);
 static bool XOR_A_r8(CPU* cpu, std::uint8_t r8);

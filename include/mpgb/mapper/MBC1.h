@@ -4,7 +4,7 @@
 #include <array>
 #include <vector>
 
-#include "Cartridge.h"
+#include <mpgb/Cartridge.h>
 
 class MBC1 : public Mapper {
 public:

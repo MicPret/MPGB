@@ -1,5 +1,5 @@
-#include "bitshift.h"
-#include "CPU.h"
+#include <mpgb/instr/bitshift.h>
+#include <mpgb/CPU.h>
 
 #include <cstdint>
 

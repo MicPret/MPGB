@@ -8,6 +8,8 @@ target_compile_features(mpgb PRIVATE cxx_std_20)
 
 add_subdirectory(ext)
 
+target_include_directories(mpgb PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 target_sources(mpgb
     PRIVATE
         main.cpp

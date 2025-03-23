@@ -1,4 +1,4 @@
-#include "NoMBC.h"
+#include <mpgb/mapper/NoMBC.h>
 
 #include <algorithm>
 #include <cassert>

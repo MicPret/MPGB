@@ -1,5 +1,5 @@
-#include "bitflag.h"
-#include "CPU.h"
+#include <mpgb/instr/bitflag.h>
+#include <mpgb/CPU.h>
 
 static bool BIT_u3_r8(CPU* cpu, std::uint8_t u3, std::uint8_t r8);
 static bool BIT_u3_HL(CPU* cpu, std::uint8_t u3);

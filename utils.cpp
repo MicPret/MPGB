@@ -1,4 +1,4 @@
-#include "utils.h"
+#include <mpgb/instr/utils.h>
 
 std::uint16_t to_r16(std::uint8_t hi, std::uint8_t lo) {
     return (hi << 8) | lo;

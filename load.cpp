@@ -1,5 +1,5 @@
-#include "load.h"
-#include "CPU.h"
+#include <mpgb/instr/load.h>
+#include <mpgb/CPU.h>
 
 static bool LD_r8_r8(std::uint8_t* dest, std::uint8_t source);
 static bool LD_r8_n8(CPU* cpu, std::uint8_t* r8);

@@ -1,6 +1,6 @@
-#include "DMA.h"
-#include "Bus.h"
-#include "PPU.h"
+#include <mpgb/DMA.h>
+#include <mpgb/Bus.h>
+#include <mpgb/PPU.h>
 
 #include <cassert>
 

@@ -1,6 +1,6 @@
-#include "Graphics.h"
-#include "Print.h"
-#include "Shader.h"
+#include <mpgb/Graphics.h>
+#include <mpgb/Print.h>
+#include <mpgb/Shader.h>
 
 #include <array>
 #include <cstdint>

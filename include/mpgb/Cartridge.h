@@ -1,7 +1,7 @@
 #ifndef MPGB_CARTRIDGE_H
 #define MPGB_CARTRIDGE_H
 
-#include "Mapper.h"
+#include <mpgb/mapper/Mapper.h>
 
 #include <cstddef>
 #include <cstdint>

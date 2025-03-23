@@ -1,9 +1,9 @@
-#include "Cartridge.h"
-#include "CartridgeHeader.h"
-#include "MBC1.h"
-#include "MBC2.h"
-#include "NoMBC.h"
-#include "Print.h"
+#include <mpgb/Cartridge.h>
+#include <mpgb/CartridgeHeader.h>
+#include <mpgb/mapper/MBC1.h>
+#include <mpgb/mapper/MBC2.h>
+#include <mpgb/mapper/NoMBC.h>
+#include <mpgb/Print.h>
 
 #include <algorithm>
 #include <cassert>

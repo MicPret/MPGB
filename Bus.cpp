@@ -1,8 +1,8 @@
-#include "Bus.h"
-#include "CPU.h"
-#include "PPU.h"
-#include "Print.h"
-#include "utils.h"
+#include <mpgb/Bus.h>
+#include <mpgb/CPU.h>
+#include <mpgb/PPU.h>
+#include <mpgb/Print.h>
+#include <mpgb/instr/utils.h>
 
 #include <GLFW/glfw3.h>
 

@@ -1,10 +1,10 @@
-#include "PPU.h"
-#include "Bus.h"
-#include "Graphics.h"
-#include "InterruptFlag.h"
-#include "OBJ.h"
-#include "Print.h"
-#include "utils.h"
+#include <mpgb/PPU.h>
+#include <mpgb/Bus.h>
+#include <mpgb/Graphics.h>
+#include <mpgb/InterruptFlag.h>
+#include <mpgb/OBJ.h>
+#include <mpgb/Print.h>
+#include <mpgb/instr/utils.h>
 
 #include <algorithm>
 #include <cassert>

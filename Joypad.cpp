@@ -1,4 +1,4 @@
-#include "Joypad.h"
+#include <mpgb/Joypad.h>
 
 #include <GLFW/glfw3.h>
 

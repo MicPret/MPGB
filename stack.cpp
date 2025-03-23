@@ -1,6 +1,6 @@
-#include "stack.h"
-#include "CPU.h"
-#include "utils.h"
+#include <mpgb/instr/stack.h>
+#include <mpgb/CPU.h>
+#include <mpgb/instr/utils.h>
 
 static bool PUSH_r16(CPU* cpu, std::uint8_t hi, std::uint8_t lo);
 static bool POP_r16(CPU* cpu, std::uint8_t* hi, std::uint8_t* lo);

@@ -1,6 +1,6 @@
-#include "arithmetic16.h"
-#include "CPU.h"
-#include "utils.h"
+#include <mpgb/instr/arithmetic16.h>
+#include <mpgb/CPU.h>
+#include <mpgb/instr/utils.h>
 
 static bool ADD_HL_r16(CPU* cpu, std::uint16_t r16);
 static bool INC_r16(CPU* cpu, std::uint8_t* hi, std::uint8_t* lo);

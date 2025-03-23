@@ -3,7 +3,7 @@
 
 #include <array>
 
-#include "Cartridge.h"
+#include <mpgb/Cartridge.h>
 
 class NoMBC : public Mapper {
 public:

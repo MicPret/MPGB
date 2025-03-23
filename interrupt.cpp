@@ -1,5 +1,5 @@
-#include "interrupt.h"
-#include "CPU.h"
+#include <mpgb/instr/interrupt.h>
+#include <mpgb/CPU.h>
 
 bool i76_HALT(CPU* cpu) {
     cpu->Halt = true;

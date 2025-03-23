@@ -1,6 +1,6 @@
-#include "Mapper.h"
-#include "CartridgeHeader.h"
-#include "Print.h"
+#include <mpgb/mapper/Mapper.h>
+#include <mpgb/CartridgeHeader.h>
+#include <mpgb/Print.h>
 
 Mapper::Mapper(const std::uint8_t* data) {
     auto header = CartridgeHeader(data);

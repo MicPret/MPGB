@@ -1,4 +1,4 @@
-#include "Shader.h"
+#include <mpgb/Shader.h>
 
 #ifndef __EMSCRIPTEN__
 static constexpr char vertex_src[] =

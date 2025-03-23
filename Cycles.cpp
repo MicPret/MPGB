@@ -1,4 +1,4 @@
-#include "Cycles.h"
+#include <mpgb/Cycles.h>
 
 constexpr std::array<Cycles, 512> cycles = {
         // 0x

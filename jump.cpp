@@ -1,6 +1,6 @@
-#include "jump.h"
-#include "CPU.h"
-#include "utils.h"
+#include <mpgb/instr/jump.h>
+#include <mpgb/CPU.h>
+#include <mpgb/instr/utils.h>
 
 static bool JR_cc_e8(CPU* cpu, bool cc) {
     auto offset = static_cast<std::int8_t>(cpu->Fetch8());

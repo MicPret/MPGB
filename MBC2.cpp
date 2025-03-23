@@ -1,5 +1,5 @@
-#include "MBC2.h"
-#include "Print.h"
+#include <mpgb/mapper/MBC2.h>
+#include <mpgb/Print.h>
 
 #include <algorithm>
 #include <cassert>

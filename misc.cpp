@@ -1,5 +1,5 @@
-#include "misc.h"
-#include "CPU.h"
+#include <mpgb/instr/misc.h>
+#include <mpgb/CPU.h>
 
 
 bool i27_DAA(CPU* cpu) {

@@ -1,16 +1,16 @@
-#include "InstructionFunc.h"
+#include <mpgb/InstructionFunc.h>
 
-#include "arithmetic8.h"
-#include "arithmetic16.h"
-#include "bitflag.h"
-#include "bitwise.h"
-#include "bitshift.h"
-#include "carry.h"
-#include "interrupt.h"
-#include "jump.h"
-#include "load.h"
-#include "misc.h"
-#include "stack.h"
+#include <mpgb/instr/arithmetic8.h>
+#include <mpgb/instr/arithmetic16.h>
+#include <mpgb/instr/bitflag.h>
+#include <mpgb/instr/bitwise.h>
+#include <mpgb/instr/bitshift.h>
+#include <mpgb/instr/carry.h>
+#include <mpgb/instr/interrupt.h>
+#include <mpgb/instr/jump.h>
+#include <mpgb/instr/load.h>
+#include <mpgb/instr/misc.h>
+#include <mpgb/instr/stack.h>
 
 constexpr std::array<InstructionFunc, 512> CreateTable() {
     std::array<InstructionFunc, 512> t = { nullptr };

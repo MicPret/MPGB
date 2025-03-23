@@ -1,7 +1,7 @@
-#include "CPU.h"
-#include "Cycles.h"
-#include "InstructionFunc.h"
-#include "utils.h"
+#include <mpgb/CPU.h>
+#include <mpgb/Cycles.h>
+#include <mpgb/InstructionFunc.h>
+#include <mpgb/instr/utils.h>
 
 #include <cstdio>
 #include <iostream>

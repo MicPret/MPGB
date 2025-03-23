@@ -1,9 +1,9 @@
-#include "Bus.h"
-#include "Cartridge.h"
-#include "CPU.h"
-#include "Graphics.h"
-#include "PPU.h"
-#include "Print.h"
+#include <mpgb/Bus.h>
+#include <mpgb/Cartridge.h>
+#include <mpgb/CPU.h>
+#include <mpgb/Graphics.h>
+#include <mpgb/PPU.h>
+#include <mpgb/Print.h>
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>

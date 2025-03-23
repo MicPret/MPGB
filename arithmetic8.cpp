@@ -1,5 +1,5 @@
-#include "arithmetic8.h"
-#include "CPU.h"
+#include <mpgb/instr/arithmetic8.h>
+#include <mpgb/CPU.h>
 
 static bool CP_A_r8(CPU* cpu, std::uint8_t r8);
 static bool SBC_A_r8(CPU* cpu, std::uint8_t r8);
