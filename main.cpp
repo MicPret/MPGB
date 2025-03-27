@@ -9,13 +9,17 @@
 #include <emscripten.h>
 #endif
 
+#include <algorithm>
 #include <cstddef>
 #include <cstdint>
+#include <fstream>
+#include <string>
 
 static Bus s_Bus;
 static CPU s_CPU;
 static PPU s_PPU;
 static Cartridge s_Cartridge;
+static std::string s_Filename;
 
 extern "C" {
 #ifdef __EMSCRIPTEN__
@@ -28,7 +32,11 @@ extern "C" {
 #ifndef __EMSCRIPTEN__
 int main(int argc, const char* argv[]) {
     if (argc > 1) {
-        s_Cartridge.Load(argv[1]);
+        s_Filename = argv[1];
+        auto save_name = s_Filename + ".sav";
+        s_Cartridge.LoadROM(s_Filename);
+        if (std::filesystem::exists(save_name))
+            s_Cartridge.LoadSave(save_name);
     }
     return Start();
 }
@@ -72,6 +80,13 @@ int Start() {
     } while(keep_going);
     
     TerminateGraphics();
+    auto save_data = s_Cartridge.Save();
+    if (!save_data.empty()) {
+        auto save_name = s_Filename + ".sav";
+        std::ofstream save_file(save_name, std::ios::binary);
+        std::copy(save_data.begin(), save_data.end(), std::ostreambuf_iterator<char>(save_file));
+    }
+    
 #endif
     fflush(stdout);
     setvbuf(stdout, nullptr, _IOLBF, BUFSIZ);

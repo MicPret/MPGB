@@ -29,7 +29,6 @@ std::uint8_t MBC2::Read8(std::uint16_t address) const {
             PRINTF("[READ] [MBC2] RAM disabled: %04X\n", address);
             return -1;
         }
-        // TODO implement save
         unsigned offset = address & 0x1FF;
         return m_RAMBanks.front()[offset]; // TODO check
     }

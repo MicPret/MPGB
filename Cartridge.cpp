@@ -14,19 +14,41 @@
 
 static std::unique_ptr<Mapper> CreateMapper(const std::uint8_t* data, std::size_t size);
 
-bool Cartridge::Load(const std::filesystem::path& file) {
+bool Cartridge::LoadROM(const std::filesystem::path& file) {
     std::ifstream rom(file, std::ios::binary);
     if (!rom) {
-        PRINTF("Failed to load ROM file: %s\n", file.c_str());
+        auto name = file.string();
+        PRINTF("Failed to load ROM file: %s\n", name.c_str());
         return false;
     }
-    auto data = std::vector<std::uint8_t>(std::istreambuf_iterator<char>(rom), {});
-    return Load(data.data(), data.size());
+    auto raw = std::vector<std::uint8_t>(std::istreambuf_iterator<char>(rom), {});
+    return LoadROM(raw.data(), raw.size());
 }
 
-bool Cartridge::Load(const std::uint8_t* data, std::size_t size) {
+bool Cartridge::LoadROM(const std::uint8_t* data, std::size_t size) {
     m_Mapper = CreateMapper(data, size);
     return m_Mapper != nullptr;
+}
+
+bool Cartridge::LoadSave(const std::filesystem::path& file) {
+    std::ifstream save(file, std::ios::binary);
+    if (save) {
+        auto name = file.string();
+        PRINTF("Failed to load save file: %s\n", name.c_str());
+        return false;
+    }
+    auto raw = std::vector<std::uint8_t>(std::istreambuf_iterator<char>(save), {});
+    return LoadSave(raw.data(), raw.size());
+}
+
+std::vector<std::uint8_t> Cartridge::Save() const {
+    assert(m_Mapper);
+    return m_Mapper->SaveRAM();
+}
+
+bool Cartridge::LoadSave(const std::uint8_t* data, std::size_t size) {
+    assert(m_Mapper);
+    return m_Mapper->LoadSave(data, size);
 }
 
 std::uint8_t Cartridge::Read8(std::uint16_t address) const {
@@ -46,7 +68,7 @@ std::unique_ptr<Mapper> CreateMapper(const std::uint8_t* data, std::size_t size)
     PRINTF("Loading %s...\n", title.c_str());
     PRINTF("Mapper type: %02X\n", header.mapperType);
     std::unique_ptr<Mapper> result = nullptr;
-    switch (header.mapperType){
+    switch (header.mapperType) {
     case 0x00:
         result = std::make_unique<NoMBC>(data);
         break;
