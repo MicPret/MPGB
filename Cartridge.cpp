@@ -2,6 +2,7 @@
 #include <mpgb/CartridgeHeader.h>
 #include <mpgb/mapper/MBC1.h>
 #include <mpgb/mapper/MBC2.h>
+#include <mpgb/mapper/MBC3.h>
 #include <mpgb/mapper/NoMBC.h>
 #include <mpgb/Print.h>
 
@@ -58,6 +59,12 @@ std::unique_ptr<Mapper> CreateMapper(const std::uint8_t* data, std::size_t size)
     case 0x06:
         result = std::make_unique<MBC2>(data);
         break;
+    case 0x0F:
+    case 0x10:
+    case 0x11:
+    case 0x12:
+    case 0x13:
+        result = std::make_unique<MBC3>(data);
     default:
         PRINTF("Unsupported mapper: %02X\n", header.mapperType);
         break;

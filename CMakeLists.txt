@@ -37,6 +37,7 @@ target_sources(mpgb
         Mapper.cpp
         MBC1.cpp
         MBC2.cpp
+        MBC3.cpp
         NoMBC.cpp
         PPU.cpp
         Shader.cpp
