@@ -11,9 +11,18 @@ MPGB is a Game Boy emulator.
 
 ## Instructions
 1. Clone the repository
+    ```
+    git clone https://github.com/MicPret/MPGB.git
+    ```
 2. Build the project using CMake
+    ```
+    cd MPGB
+    cmake -S . -B build
+    cmake --build build
+    ```
 3. Run it
     ```
+    cd build
     ./mpgb [your_game.gb]
     ```
 
@@ -21,7 +30,7 @@ MPGB is a Game Boy emulator.
 - [x] NoMBC
 - [x] MBC1
 - [x] MBC2
-- [ ] MBC3
+- [ ] MBC3 (WIP)
 - [ ] MBC5
 - [ ] MBC6
 - [ ] MBC7
@@ -33,6 +42,7 @@ MPGB is a Game Boy emulator.
 ## TODO
 - Better README.md
 - Fix OAM and VRAM access issue
+- Audio support
 - Remappable joypad
 - Fix browser weird behaviour
 - Android support
