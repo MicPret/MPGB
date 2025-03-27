@@ -56,7 +56,7 @@ bool MBC2::Write8(std::uint16_t address, std::uint8_t value) {
     // RAM
     if (!m_RAMEnabled) [[unlikely]] {
         PRINTF("[READ] [MBC2] RAM disabled: %04X\n", address);
-        return -1;
+        return false;
     }
     unsigned offset = address & 0x1FF;
     m_RAMBanks.front()[offset] = value;

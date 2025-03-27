@@ -1,10 +1,7 @@
 #ifndef MPGB_MBC1_H
 #define MPGB_MBC1_H
 
-#include <array>
-#include <vector>
-
-#include <mpgb/Cartridge.h>
+#include "Mapper.h"
 
 class MBC1 : public Mapper {
 public:

@@ -37,7 +37,7 @@ std::uint8_t MBC1::Read8(std::uint16_t address) const {
         unsigned bank_select = (m_BankingMode && (m_ROMSelectHi < m_RAMBanks.size()))
             ? m_ROMSelectHi
             : 0;
-        if (bank_select >= m_ROMBanks.size()) [[unlikely]] {
+        if (bank_select >= m_RAMBanks.size()) [[unlikely]] {
             PRINTF("[READ] [MBC1] Not enough RAM: %u/%zu\n", bank_select, m_RAMBanks.size());
             return -1;
         }
@@ -74,7 +74,7 @@ bool MBC1::Write8(std::uint16_t address, std::uint8_t value) {
     // RAM
     if (!m_RAMEnabled) [[unlikely]] {
         PRINTF("[WRITE] [MBC1] RAM disabled: %04X\n", address);
-        return -1;
+        return false;
     }
     unsigned offset = address - 0xA000;
     unsigned bank_select = (m_BankingMode && (m_ROMSelectHi < m_RAMBanks.size()))
