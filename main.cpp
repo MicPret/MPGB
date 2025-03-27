@@ -61,7 +61,7 @@ void main_loop() {
 }
 
 void LoadROM(const std::uint8_t* data, std::size_t size) {
-    s_Cartridge.Load(data, size);
+    s_Cartridge.LoadROM(data, size);
 }
 
 #endif
@@ -92,6 +92,6 @@ bool Start() {
 #endif
     fflush(stdout);
     setvbuf(stdout, nullptr, _IOLBF, BUFSIZ);
-    
+
     return true;
 }
