@@ -48,7 +48,7 @@ bool Mapper::LoadSave(const std::uint8_t* data, std::size_t size) {
     for (auto& bank : m_RAMBanks) {
         auto n = std::min(static_cast<std::size_t>(RAMBankSize), size - offset);
         auto address = data + offset;
-        std::copy(address, address + n, bank.data() + offset);
+        std::copy(address, address + n, bank.data());
         offset += n;
     }
     return true;
@@ -58,8 +58,8 @@ std::vector<std::uint8_t> Mapper::SaveRAM() const {
     std::vector<std::uint8_t> result;
     result.resize(RAMBankSize * m_RAMBanks.size());
     std::size_t copied = 0;
-    for (auto& bank : m_RAMBanks) {
-        std::copy_n(bank.data(), RAMBankSize, result.data() + copied);
+    for (const auto& bank : m_RAMBanks) {
+        std::copy(bank.data(), bank.data() + RAMBankSize, result.data() + copied);
         copied += RAMBankSize;
     }
     return result;

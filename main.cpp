@@ -26,19 +26,28 @@ extern "C" {
     void main_loop();
     void LoadROM(const std::uint8_t* data, std::size_t size);
 #endif
-    int Start();
+    bool Start();
 }
 
 #ifndef __EMSCRIPTEN__
 int main(int argc, const char* argv[]) {
+    if (argc < 2) {
+        PUTS("You must specify a ROM file as argument!");
+        return 1;
+    }
     if (argc > 1) {
         s_Filename = argv[1];
         auto save_name = s_Filename + ".sav";
-        s_Cartridge.LoadROM(s_Filename);
-        if (std::filesystem::exists(save_name))
-            s_Cartridge.LoadSave(save_name);
+        bool success = s_Cartridge.LoadROM(s_Filename);
+        if (!success || !std::filesystem::exists(save_name)) {
+            return 2;
+        }
+        PRINTF("Loading save file: %s\n", save_name.c_str());
+        s_Cartridge.LoadSave(save_name);
     }
-    return Start();
+    bool success = Start();
+
+    return success ? 0 : 3;
 }
 #endif
 
@@ -57,12 +66,12 @@ void LoadROM(const std::uint8_t* data, std::size_t size) {
 
 #endif
 
-int Start() {
+bool Start() {
     TerminateGraphics();
     auto window = InitGraphics();
     if (!window) {
         PUTS("Failed to create window!");
-        return 2;
+        return false;
     }
     PUTS("Graphics loaded!");
 
@@ -80,16 +89,9 @@ int Start() {
     } while(keep_going);
     
     TerminateGraphics();
-    auto save_data = s_Cartridge.Save();
-    if (!save_data.empty()) {
-        auto save_name = s_Filename + ".sav";
-        std::ofstream save_file(save_name, std::ios::binary);
-        std::copy(save_data.begin(), save_data.end(), std::ostreambuf_iterator<char>(save_file));
-    }
-    
 #endif
     fflush(stdout);
     setvbuf(stdout, nullptr, _IOLBF, BUFSIZ);
     
-    return 0;
+    return true;
 }

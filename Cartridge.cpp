@@ -32,7 +32,7 @@ bool Cartridge::LoadROM(const std::uint8_t* data, std::size_t size) {
 
 bool Cartridge::LoadSave(const std::filesystem::path& file) {
     std::ifstream save(file, std::ios::binary);
-    if (save) {
+    if (!save) {
         auto name = file.string();
         PRINTF("Failed to load save file: %s\n", name.c_str());
         return false;
@@ -87,6 +87,7 @@ std::unique_ptr<Mapper> CreateMapper(const std::uint8_t* data, std::size_t size)
     case 0x12:
     case 0x13:
         result = std::make_unique<MBC3>(data);
+        break;
     default:
         PRINTF("Unsupported mapper: %02X\n", header.mapperType);
         break;
